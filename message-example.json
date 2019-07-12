@@ -1,0 +1,8 @@
+{
+  "title":"Good News!",
+  "content":"Good News! DaDaPush releasing new version",
+  "actions":[
+    {"name":"website","url":"https://www.dadapush.com/","type":"link"},
+    {"name":"documentation","url":"https://www.dadapush.com/documentation","type":"link"}
+  ]
+}
