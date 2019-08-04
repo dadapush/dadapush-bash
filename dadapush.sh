@@ -3,21 +3,18 @@
 # Default config vars
 CURL="$(which curl)"
 DADAPUSH_URL="https://www.dadapush.com/api/v1/message"
-TOKEN="" # May be set in dadapush.conf or given on command line
+TOKEN=""
 CURL_OPTS=""
 
 # Functions used elsewhere in this script
 usage() {
-    echo "${0} <options> <message>"
-    echo " -T <TOKEN>"
-    echo " -M <msg_file>"
+    echo "${0} -T <TOKEN> -M <msg_file>"
     exit 1
 }
 
 send_message() {
     curl_cmd="\"${CURL}\" --silent --write-out "HTTPSTATUS:%{http_code}" -X POST \"${DADAPUSH_URL}\" \
         ${CURL_OPTS} \
-        -H 'cache-control: no-cache' \
         -H 'content-type: application/json' \
         -H 'x-channel-token: ${TOKEN}' \
         -d @\"${message}\"
